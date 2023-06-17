@@ -3,16 +3,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="145.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.familybudget.controller.InputController">
+<AnchorPane prefHeight="145.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.familybudget.controller.InputController">
    <children>
       <Label layoutX="15.0" layoutY="15.0" text="Название" />
       <Label layoutX="15.0" layoutY="45.0" text="Тип записи" />
-      <RadioButton layoutX="85.0" layoutY="45.0" mnemonicParsing="false" text="доход" />
-      <RadioButton layoutX="150.0" layoutY="45.0" mnemonicParsing="false" text="расход" />
-      <TextField layoutX="80.0" layoutY="10.0" />
+      <RadioButton fx:id="incomeRadioButton" layoutX="85.0" layoutY="45.0" mnemonicParsing="false" selected="true" text="доход">
+         <toggleGroup>
+            <ToggleGroup fx:id="type" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="expenseRadioButton" layoutX="150.0" layoutY="45.0" mnemonicParsing="false" text="расход" toggleGroup="$type" />
+      <TextField fx:id="nameTextField" layoutX="80.0" layoutY="10.0" prefHeight="25.0" prefWidth="205.0" />
       <Label layoutX="15.0" layoutY="80.0" text="Дата" />
-      <DatePicker layoutX="55.0" layoutY="75.0" prefWidth="100.0" />
-      <Button layoutX="45.0" layoutY="110.0" mnemonicParsing="false" prefWidth="75.0" text="Сохранить" />
-      <Button layoutX="130.0" layoutY="110.0" mnemonicParsing="false" prefWidth="75.0" text="Очистить" />
+      <DatePicker fx:id="dateDatePicker" layoutX="50.0" layoutY="75.0" prefWidth="100.0" />
+      <Button layoutX="75.0" layoutY="110.0" mnemonicParsing="false" onAction="#saveButtonAction" prefWidth="75.0" text="Сохранить" />
+      <Button layoutX="160.0" layoutY="110.0" mnemonicParsing="false" onAction="#clearButtonAction" prefWidth="75.0" text="Очистить" />
+      <Label layoutX="165.0" layoutY="79.0" text="Сумма" />
+      <TextField fx:id="amountTextField" layoutX="209.0" layoutY="75.0" prefWidth="75.0" />
    </children>
 </AnchorPane>
