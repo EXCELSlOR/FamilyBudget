@@ -6,11 +6,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class InputController {
+
+    private Stage stage;
 
     private BudgetEntity budgetEntity;
 
@@ -20,6 +23,10 @@ public class InputController {
 
     public void setBudgetEntity(BudgetEntity budgetEntity) {
         this.budgetEntity = budgetEntity;
+    }
+
+    public InputController(Stage stage) {
+        this.stage = stage;
     }
 
     @FXML
@@ -39,6 +46,10 @@ public class InputController {
 
     @FXML
     private void initialize() {
+
+    }
+
+    public void loadAction() {
         if (budgetEntity == null) {
             clearButtonAction();
         } else {
@@ -68,6 +79,7 @@ public class InputController {
                 dateDatePicker.getValue(),
                 BigDecimal.valueOf(amount)
         );
+        stage.close();
     }
 
     @FXML

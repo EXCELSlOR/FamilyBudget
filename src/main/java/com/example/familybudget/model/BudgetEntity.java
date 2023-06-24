@@ -1,9 +1,10 @@
 package com.example.familybudget.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class BudgetEntity {
+public class BudgetEntity implements Serializable {
 private String name;
 private BudgetEntityType type;
 private LocalDate date;

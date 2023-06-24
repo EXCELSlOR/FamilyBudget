@@ -4,23 +4,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.familybudget.controller.MainController">
+<VBox alignment="CENTER_LEFT" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.familybudget.controller.MainController">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
    <children>
       <HBox alignment="CENTER_LEFT" spacing="10.0" VBox.vgrow="NEVER">
          <children>
-            <ComboBox fx:id="typeComboBox" prefWidth="80.0" />
+            <ComboBox fx:id="typeComboBox" onAction="#typeComboBoxAction" prefWidth="80.0" />
             <CheckBox fx:id="fromCheckBox" mnemonicParsing="false" onAction="#fromCheckBoxAction" text="с" />
-            <DatePicker fx:id="fromDatePicker" disable="true" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+            <DatePicker fx:id="fromDatePicker" disable="true" maxWidth="-Infinity" minWidth="-Infinity" onAction="#fromDatePickerAction" prefWidth="100.0" />
             <CheckBox fx:id="toCheckBox" mnemonicParsing="false" onAction="#toCheckBoxAction" text="по" />
-            <DatePicker fx:id="toDatePicker" disable="true" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+            <DatePicker fx:id="toDatePicker" disable="true" maxWidth="-Infinity" minWidth="-Infinity" onAction="#toDatePickerAction" prefWidth="100.0" />
          </children>
       </HBox>
       <TableView fx:id="budgetTableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="numberTableColumn" minWidth="-Infinity" prefWidth="75.0" text="№ п/п" />
             <TableColumn fx:id="nameTableColumn" prefWidth="75.0" text="Название" />
           <TableColumn fx:id="typeTableColumn" prefWidth="75.0" text="Тип" />
           <TableColumn fx:id="dateTableColumn" prefWidth="75.0" text="Дата" />
@@ -34,5 +33,6 @@
             <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeButtonAction" prefWidth="70.0" text="Удалить" />
          </children>
       </HBox>
+      <Label fx:id="totalAmountLabel" text="Бюджет:" />
    </children>
 </VBox>
